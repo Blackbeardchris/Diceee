@@ -29,19 +29,21 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rollButtonPresssed(_ sender: UIButton) {
-        
+        updateDiceImages()
+    }
+    func updateDiceImages(){
         randomDiceIndex1 = Int(arc4random_uniform(6))
         randomDiceIndex2 = Int(arc4random_uniform(6))
         //these spit outrandom numbers
-        
-        print(randomDiceIndex1)
-        print(randomDiceIndex2)
-        
+
         diceImageView1.image = UIImage(named: diceArray[randomDiceIndex1])
-        
         diceImageView2.image = UIImage(named: diceArray[randomDiceIndex2])
         // random number then uses randowm dice
         
+        
+    }
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        updateDiceImages()
     }
     
 }
